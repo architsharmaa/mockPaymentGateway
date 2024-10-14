@@ -1,14 +1,17 @@
 CREATE USER 'pg'@'localhost' IDENTIFIED BY 'pg';
 GRANT ALL PRIVILEGES ON payment_gateway.* TO 'pg'@'localhost';
 
-CREATE TABLE Payment (
-    paymentId BIGINT NOT NULL PRIMARY KEY,
-    refernceId BIGINT NOT NULL,
-    paymentAmount DOUBLE NOT NULL,
-    processingFee DOUBLE NOT NULL,
-    merchantRefNum VARCHAR(255),
-    paymentTypeCode VARCHAR(50),
-    paymentTypeDescription VARCHAR(255),
-    paymentStatus VARCHAR(50) NOT NULL,
-    paymenDate DATE
+CREATE TABLE payment (
+    payment_id BIGINT NOT NULL PRIMARY KEY,
+    reference_id BIGINT NOT NULL,
+    payment_amount DOUBLE NOT NULL,
+    processing_fee DOUBLE NOT NULL,
+    merchant_ref_num VARCHAR(255),
+    payment_type_code VARCHAR(50),
+    payment_type_description VARCHAR(255),
+    payment_status VARCHAR(50) NOT NULL,
+    payment_date DATE
 );
+
+ALTER TABLE payment MODIFY COLUMN payment_id BIGINT NOT NULL AUTO_INCREMENT;
+

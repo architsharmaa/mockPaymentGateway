@@ -13,8 +13,8 @@ public class Payment {
     @Column(name = "paymentId")
     private Long paymentId;
 
-    @Column(name = "refernceId", nullable = false)
-    private Long refernceId;
+    @Column(name = "referenceId", nullable = false)
+    private Long referenceId;
 
     @Column(name = "paymentAmount", nullable = false)
     private Double paymentAmount;
@@ -34,23 +34,23 @@ public class Payment {
     @Column(name = "paymentStatus", length = 50)
     private String paymentStatus;
 
-    @Column(name = "paymenDate")
+    @Column(name = "paymentDate")
     @Temporal(TemporalType.DATE)
-    private Date paymenDate;
+    private Date paymentDate;
 
     // Constructors
     public Payment() {}
 
-    public Payment(Long refernceId, Double paymentAmount, Double processingFee, String merchantRefNum,
+    public Payment(Long referenceId, Double paymentAmount, Double processingFee, String merchantRefNum,
                    String paymentTypeCode, String paymentTypeDescription, String paymentStatus, Date paymenDate) {
-        this.refernceId = refernceId;
+        this.referenceId = referenceId;
         this.paymentAmount = paymentAmount;
         this.processingFee = processingFee;
         this.merchantRefNum = merchantRefNum;
         this.paymentTypeCode = paymentTypeCode;
         this.paymentTypeDescription = paymentTypeDescription;
         this.paymentStatus = paymentStatus;
-        this.paymenDate = paymenDate;
+        this.paymentDate = paymenDate;
     }
 
     // Getters and Setters
@@ -63,12 +63,12 @@ public class Payment {
         this.paymentId = paymentId;
     }
 
-    public Long getRefernceId() {
-        return refernceId;
+    public Long getReferenceId() {
+        return referenceId;
     }
 
-    public void setRefernceId(Long refernceId) {
-        this.refernceId = refernceId;
+    public void setReferenceId(Long referenceId) {
+        this.referenceId = referenceId;
     }
 
     public Double getPaymentAmount() {
@@ -119,12 +119,13 @@ public class Payment {
         this.paymentStatus = paymentStatus;
     }
 
-    public Date getPaymenDate() {
-        return paymenDate;
+    public Date getPaymentDate() {
+        return paymentDate;
     }
 
-    public void setPaymenDate(Date paymenDate) {
-        this.paymenDate = paymenDate;
+    public void setPaymentDate(Date paymenDate) {
+        this.paymentDate = paymenDate;
     }
+
 
 }
