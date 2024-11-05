@@ -1,7 +1,6 @@
 package com.mock.paymentGateway.models;
 
 import jakarta.persistence.*;
-
 import java.util.Date;
 
 @Entity
@@ -25,9 +24,6 @@ public class Payment {
     @Column(name = "merchantRefNum", length = 255)
     private String merchantRefNum;
 
-    @Column(name = "paymentTypeCode", length = 50)
-    private String paymentTypeCode;
-
     @Column(name = "paymentTypeDescription", length = 255)
     private String paymentTypeDescription;
 
@@ -38,19 +34,24 @@ public class Payment {
     @Temporal(TemporalType.DATE)
     private Date paymentDate;
 
+    // Transient field for PaymentMethod
+    @Transient
+    private PaymentMethod paymentMethod;
+
     // Constructors
     public Payment() {}
 
     public Payment(Long referenceId, Double paymentAmount, Double processingFee, String merchantRefNum,
-                   String paymentTypeCode, String paymentTypeDescription, String paymentStatus, Date paymenDate) {
+                   String paymentTypeDescription, String paymentStatus, Date paymentDate,
+                   PaymentMethod paymentMethod) {
         this.referenceId = referenceId;
         this.paymentAmount = paymentAmount;
         this.processingFee = processingFee;
         this.merchantRefNum = merchantRefNum;
-        this.paymentTypeCode = paymentTypeCode;
         this.paymentTypeDescription = paymentTypeDescription;
         this.paymentStatus = paymentStatus;
-        this.paymentDate = paymenDate;
+        this.paymentDate = paymentDate;
+        this.paymentMethod = paymentMethod;
     }
 
     // Getters and Setters
@@ -95,14 +96,6 @@ public class Payment {
         this.merchantRefNum = merchantRefNum;
     }
 
-    public String getPaymentTypeCode() {
-        return paymentTypeCode;
-    }
-
-    public void setPaymentTypeCode(String paymentTypeCode) {
-        this.paymentTypeCode = paymentTypeCode;
-    }
-
     public String getPaymentTypeDescription() {
         return paymentTypeDescription;
     }
@@ -123,9 +116,15 @@ public class Payment {
         return paymentDate;
     }
 
-    public void setPaymentDate(Date paymenDate) {
-        this.paymentDate = paymenDate;
+    public void setPaymentDate(Date paymentDate) {
+        this.paymentDate = paymentDate;
     }
 
+    public PaymentMethod getPaymentMethod() {
+        return paymentMethod;
+    }
 
+    public void setPaymentMethod(PaymentMethod paymentMethod) {
+        this.paymentMethod = paymentMethod;
+    }
 }

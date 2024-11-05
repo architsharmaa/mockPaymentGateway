@@ -7,7 +7,6 @@ CREATE TABLE payment (
     payment_amount DOUBLE NOT NULL,
     processing_fee DOUBLE NOT NULL,
     merchant_ref_num VARCHAR(255),
-    payment_type_code VARCHAR(50),
     payment_type_description VARCHAR(255),
     payment_status VARCHAR(50) NOT NULL,
     payment_date DATE

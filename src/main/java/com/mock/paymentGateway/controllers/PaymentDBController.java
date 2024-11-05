@@ -17,6 +17,14 @@ public class PaymentDBController {
     @PostMapping
     public Payment createDBResponse(@RequestBody Payment payment) {
         payment.setPaymentDate(new Date());
+        payment.setPaymentStatus("SUCCESS");
+        System.out.println(payment.getPaymentMethod());
         return paymentRepository.saveAndFlush(payment);
+    }
+
+    @GetMapping("/{id}")
+    public Payment getPaymentById(@PathVariable("id") Long paymentId) {
+        return paymentRepository.findById(paymentId)
+                .orElseThrow(() -> new RuntimeException("Payment not found with ID: " + paymentId));
     }
 }
