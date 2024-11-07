@@ -4,7 +4,16 @@ This document provides an overview of the Payment Initiation system. The flowcha
 
 ![Payment Flow Diagram](design-assets/HLD.png)
 
-## Components
+# Demo
+
+* **PostMan collection** - 
+* **Payment Method Scenarios** 
+  * ACH - All ACH payments are by default SUCCESS
+  * CARD/ACCOUNT NUMBERS - 
+    * SUCCESS - 4111111111111111,5454545454545454
+    * DECLINED - 4917484589897107
+    * All other cards will result in FAILURE payment status
+## System Design
 
 ### 1. Payment Initiation
 - The entry point for initiating a payment.

@@ -2,6 +2,7 @@ package com.mock.paymentGateway.controllers;
 
 import com.mock.paymentGateway.models.Payment;
 import com.mock.paymentGateway.repositories.PaymentRepository;
+import com.mock.paymentGateway.services.MockFINetwork;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,12 +14,13 @@ public class PaymentDBController {
 
     @Autowired
     private PaymentRepository paymentRepository;
+    @Autowired
+    private MockFINetwork mockFINetwork;
 
     @PostMapping
     public Payment createDBResponse(@RequestBody Payment payment) {
         payment.setPaymentDate(new Date());
-        payment.setPaymentStatus("SUCCESS");
-        System.out.println(payment.getPaymentMethod());
+        payment.setPaymentStatus(mockFINetwork.processPaymentMethod(payment.getPaymentMethod()).toString());
         return paymentRepository.saveAndFlush(payment);
     }
 
