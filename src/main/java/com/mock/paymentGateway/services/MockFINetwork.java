@@ -1,6 +1,6 @@
 package com.mock.paymentGateway.services;
 
-import com.mock.paymentGateway.models.AssetEnums;
+import com.mock.paymentGateway.models.PaymentHelper;
 import com.mock.paymentGateway.models.PaymentMethod;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -17,26 +17,31 @@ public class MockFINetwork {
     @Value("${invalid.cardNumber.list:4917484589897107}")
     private List<String> declinedCardNumberList;
 
-    public Enum<AssetEnums.PaymentStatus> processPaymentMethod(PaymentMethod paymentMethod) {
+    /**
+     * 
+     * @param paymentMethod
+     * @return
+     */
+    public Enum<PaymentHelper.PaymentStatus> processPaymentMethod(PaymentMethod paymentMethod) {
 
-        if(AssetEnums.PaymentMethodType.ECHECK == AssetEnums.PaymentMethodType.valueOf(paymentMethod.getMethodType())) {
+        if(PaymentHelper.PaymentMethodTypeEnum.ECHECK == PaymentHelper.PaymentMethodTypeEnum.valueOf(paymentMethod.getMethodType())) {
             //To Do : do something about Echecks payment method simulation in terms for
             //accepted routing numbers and declined routing numbers something on those line
-            return AssetEnums.PaymentStatus.SUCCESS;
+            return PaymentHelper.PaymentStatus.SUCCESS;
         } else {
             String cardNumber = paymentMethod.getAccountNumber();
 
             //simulating a success and decline status
             if(validCardNumbersList.contains(cardNumber)) {
                 //To Do create a separate MC and Visa distinguishes
-                return AssetEnums.PaymentStatus.SUCCESS;
+                return PaymentHelper.PaymentStatus.SUCCESS;
             } else if(declinedCardNumberList.contains(cardNumber)) {
-                return AssetEnums.PaymentStatus.DECLINED;
+                return PaymentHelper.PaymentStatus.DECLINED;
             }
 
         }
 
-        return AssetEnums.PaymentStatus.FAILURE;
+        return PaymentHelper.PaymentStatus.FAILURE;
     }
 
 }
