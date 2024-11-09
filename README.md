@@ -28,7 +28,7 @@ This document provides an overview of the Payment Initiation system. The flowcha
 
 ### 3. Validation & Payload Persistence
 - The system performs payload validation to ensure that the input data adheres to the expected format.
-- If invalid data is detected, an error is thrown: **Invalid Payload Error**.
+- If invalid data is detected, an error is thrown: **With error message(errorMsg) and error key(errorCode) highlighting the wrong info**.
 - For valid payloads, depending on the route, the system either:
   - **Validates with DB Persistence**: The payload is validated and stored in the database.
   - **Validates without DB Persistence**: The payload is validated, but no database operation is performed.

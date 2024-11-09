@@ -38,6 +38,14 @@ public class Payment {
     @Transient
     private PaymentMethod paymentMethod;
 
+    /**
+     * This attributes can be used to return error conditions
+     */
+    @Transient
+    private String errorCode;
+    @Transient
+    private String errorMsg;
+
     // Constructors
     public Payment() {}
 
@@ -126,5 +134,21 @@ public class Payment {
 
     public void setPaymentMethod(PaymentMethod paymentMethod) {
         this.paymentMethod = paymentMethod;
+    }
+
+    public String geterrorCode() {
+        return errorCode;
+    }
+
+    public String geterrorMsg() {
+        return errorMsg;
+    }
+
+    public void seterrorCode(String errorCode) {
+        this.errorCode = errorCode;
+    }
+
+    public void seterrorMsg(String errorMsg) {
+        this.errorMsg = errorMsg;
     }
 }
