@@ -1,5 +1,8 @@
 package com.mock.paymentGateway.models;
 
+/**
+ * @author arsharma
+ */
 public class PaymentHelper {
 
     // Enum declared for payment status
@@ -18,7 +21,7 @@ public class PaymentHelper {
     }
 
     /**
-     *
+     * Checks if the payment method is a card payment or not
      * @param methodType
      * @return boolean
      */
@@ -26,6 +29,7 @@ public class PaymentHelper {
 
         PaymentMethodTypeEnum paymentMethodType = PaymentMethodTypeEnum.valueOf(methodType);
 
+        //Enum comparisons for cards (Credit Card and Debit Card)
         return paymentMethodType == PaymentMethodTypeEnum.CC ||
                 paymentMethodType == PaymentMethodTypeEnum.DC;
     }

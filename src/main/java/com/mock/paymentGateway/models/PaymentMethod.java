@@ -1,5 +1,8 @@
 package com.mock.paymentGateway.models;
 
+/**
+ * @author arsharma
+ */
 public class PaymentMethod {
 
     private String id;

@@ -7,6 +7,11 @@ import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+/**
+ * Mock Financial Institute Network, in a case of an actual
+ * payment we route these to a payment processor like braintree or paymentech
+ * @author arsharma
+ */
 @Component
 public class MockFINetwork {
 
@@ -18,7 +23,8 @@ public class MockFINetwork {
     private List<String> declinedCardNumberList;
 
     /**
-     * 
+     * Processes payment method and based on info assigns a Payment status mocking if the
+     * payment is succesful or not
      * @param paymentMethod
      * @return
      */

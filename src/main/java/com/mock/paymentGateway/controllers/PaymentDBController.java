@@ -9,6 +9,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 
+/**
+ * @author arsharma
+ */
 @RestController
 @RequestMapping("/payment/v1")
 public class PaymentDBController {
@@ -29,6 +32,7 @@ public class PaymentDBController {
             return paymentRepository.saveAndFlush(payment);
         }
 
+        //throw invalidated payment payload
         payment.setPaymentStatus("Invalid Payment");
         return payment;
     }

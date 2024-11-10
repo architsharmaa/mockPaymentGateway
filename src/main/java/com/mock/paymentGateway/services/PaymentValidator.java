@@ -1,10 +1,18 @@
 package com.mock.paymentGateway.services;
 
 import com.mock.paymentGateway.models.Payment;
-import com.mock.paymentGateway.models.PaymentMethod;
 
+/**
+ * This is main validating class responsible for validating payment payload
+ * @author arsharma
+ */
 public class PaymentValidator {
 
+    /**
+     * Validate a payment method main calling function
+     * @param payment
+     * @return
+     */
     public static boolean validatePayment(Payment payment) {
         return validatePaymentAmount(payment) &&
                 validateProcessingFee(payment) &&
@@ -12,7 +20,7 @@ public class PaymentValidator {
     }
 
     /**
-     *
+     * Validate payment amount should be non negative or zero
      * @param payment
      * @return boolean, if error it populates the error key an error code
      */
@@ -27,6 +35,7 @@ public class PaymentValidator {
     }
 
     /**
+     * Validate processing amount should be non-negative
      * @param payment
      * @return boolean, if error it populates the error key an error code
      */

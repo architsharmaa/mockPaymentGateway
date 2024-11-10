@@ -3,6 +3,9 @@ package com.mock.paymentGateway.models;
 import jakarta.persistence.*;
 import java.util.Date;
 
+/**
+ * @author arsharma
+ */
 @Entity
 @Table(name = "Payment")
 public class Payment {
