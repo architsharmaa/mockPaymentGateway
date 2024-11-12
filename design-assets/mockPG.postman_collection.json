@@ -1,0 +1,55 @@
+{
+	"info": {
+		"_postman_id": "ecf1f9d1-5426-4068-8fee-c742b4038971",
+		"name": "mockPG",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "29953611"
+	},
+	"item": [
+		{
+			"name": "createPaymentv1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"referenceId\": 987654321,\r\n  \"paymentAmount\": 250.75, \r\n  \"processingFee\": 5.50,\r\n  \"merchantRefNum\": \"MREF12345\",\r\n  \"paymentTypeDescription\": \"Credit Card Payment\",\r\n  \"paymentMethod\": {\r\n    \"id\": \"PM123456789\",\r\n    \"accountNumber\": \"4111111111111111\",\r\n    \"methodType\": \"DC\",\r\n    \"cardHolderName\": \"John Doe\",\r\n    \"description\": \"Primary Credit Card\",\r\n    \"routingNumber\": \"987654321\",\r\n    \"fiName\": \"Bank of Example\",\r\n    \"activeFlag\": \"Y\",\r\n    \"ccExpiry\": {\r\n      \"month\": 12,\r\n      \"year\": 2025\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8999/payment/v1"
+			},
+			"response": []
+		},
+		{
+			"name": "createPaymentv2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"referenceId\": 987654321,\r\n  \"paymentAmount\": 250.75, \r\n  \"processingFee\": 5.50,\r\n  \"merchantRefNum\": \"MREF12345\",\r\n  \"paymentTypeDescription\": \"Credit Card Payment\",\r\n  \"paymentMethod\": {\r\n    \"id\": \"PM123456789\",\r\n    \"accountNumber\": \"4111111111111111\",\r\n    \"methodType\": \"ECHECK1\",\r\n    \"cardHolderName\": \"John Doe\",\r\n    \"description\": \"Primary Credit Card\",\r\n    \"routingNumber\": \"987654321\",\r\n    \"fiName\": \"Bank of Example\",\r\n    \"activeFlag\": \"Y\",\r\n    \"ccExpiry\": {\r\n      \"month\": 12,\r\n      \"year\": 2025\r\n    }\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8999/payment/v2"
+			},
+			"response": []
+		},
+		{
+			"name": "getPayment",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8090/payment/v1/3"
+			},
+			"response": []
+		}
+	]
+}
